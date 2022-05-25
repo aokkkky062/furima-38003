@@ -50,13 +50,14 @@
 
 ## shipping_addresses テーブル
 
-| Column        | Type    | Options     |
-|---------------|---------|-------------|
-| postal_code   | string  | null: false |
-| area_id       | integer | null: false | <!-- 都道府県 -->
-| municipality  | string  | null: false | <!-- 市区町村 -->
-| address       | integer | null: false | <!-- 番地 -->
-| building_name | string  | 
-| phone_number  | string  | null: false |
+| Column          | Type       | Options                        |
+|-----------------|------------|--------------------------------|
+| postal_code     | string     | null: false                    |
+| area_id         | integer    | null: false                    | <!-- 都道府県 -->
+| municipality    | string     | null: false                    | <!-- 市区町村 -->
+| address         | integer    | null: false                    | <!-- 番地 -->
+| building_name   | string     |                                |
+| phone_number    | string     | null: false                    |
+| purchase_record | references | null: false, foreign_key: true |
 
 - belongs_to :purchase_record

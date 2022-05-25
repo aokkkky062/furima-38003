@@ -22,10 +22,10 @@
 |--------------|---------|-------------|
 | name         | string  | null: false |
 | explanation  | text    | null: false | <!-- 商品の説明 -->
-| category     | string  | null: false |
-| condition    | string  | null: false | <!-- 状態 -->
-| charge       | string  | null: false | <!-- 配送料負担 -->
-| area         | string  | null: false |
+| category_id  | integer | null: false |
+| condition_id | integer | null: false | <!-- 状態 -->
+| charge_id    | integer | null: false | <!-- 配送料負担 -->
+| area_id      | integer | null: false |
 | days_of_ship | integer | null: false | <!-- 発送日の目安 -->
 | price        | integer | null: false |
 

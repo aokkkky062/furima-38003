@@ -57,6 +57,6 @@
 | municipality  | string  | null: false | <!-- 市区町村 -->
 | address       | integer | null: false | <!-- 番地 -->
 | building_name | string  | 
-| phone_number  | integer | null: false |
+| phone_number  | string  | null: false |
 
 - belongs_to :purchase_record

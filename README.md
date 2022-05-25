@@ -20,7 +20,6 @@
 
 | Column       | Type    | Options     |
 |--------------|---------|-------------|
-| image        | blob  | null: false |
 | name         | string  | null: false |
 | explanation  | text    | null: false | <!-- 商品の説明 -->
 | category     | string  | null: false |

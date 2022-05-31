@@ -11,13 +11,16 @@ class Item < ApplicationRecord
 
   #空の投稿を保存できないようにする
   with_options presence: true do
+    validates :image
+    validates :name
+    validates :explanation
     validates :category_id
     validates :condition_id
     validates :charge_id
     validates :area_id
     validates :days_of_ship_id
+    validates :price, numericality: { in: 300..9999999 }, format: { with: /\A[0-9]+\z/ }
   end
-
 
   #ジャンルの選択が「---」の時は保存できないようにする
   with_options numericality: { other_than: 1, message: "Can't be blank" } do

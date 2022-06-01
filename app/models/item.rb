@@ -11,6 +11,7 @@ class Item < ApplicationRecord
 
   #空の投稿を保存できないようにする
   with_options presence: true do
+    validates :user_id
     validates :image
     validates :name
     validates :explanation
@@ -19,7 +20,7 @@ class Item < ApplicationRecord
     validates :charge_id
     validates :area_id
     validates :days_of_ship_id
-    validates :price, numericality: { in: 300..9999999 }, format: { with: /\A[0-9]+\z/ }
+    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }, format: { with: /\A[0-9]+\z/ }
   end
 
   #ジャンルの選択が「---」の時は保存できないようにする

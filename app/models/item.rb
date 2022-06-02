@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to :area
   belongs_to :days_of_ship
 
-  #空の投稿を保存できないようにする
+  # 空の投稿を保存できないようにする
   with_options presence: true do
     validates :user_id
     validates :image
@@ -20,10 +20,11 @@ class Item < ApplicationRecord
     validates :charge_id
     validates :area_id
     validates :days_of_ship_id
-    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }, format: { with: /\A[0-9]+\z/ }
+    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
+                      format: { with: /\A[0-9]+\z/ }
   end
 
-  #ジャンルの選択が「---」の時は保存できないようにする
+  # ジャンルの選択が「---」の時は保存できないようにする
   with_options numericality: { other_than: 1, message: "Can't be blank" } do
     validates :category_id
     validates :condition_id

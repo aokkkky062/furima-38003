@@ -42,57 +42,57 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist', "User can't be blank")
       end
-      it "画像がないと出品できない" do
+      it '画像がないと出品できない' do
         @item.image = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
-      it "商品名が空欄だと出品できない" do
+      it '商品名が空欄だと出品できない' do
         @item.name = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Name can't be blank")
       end
-      it "商品の説明が空欄だと出品できない" do
+      it '商品の説明が空欄だと出品できない' do
         @item.explanation = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Explanation can't be blank")
       end
-      it "カテゴリー情報が空欄だと出品できない" do
+      it 'カテゴリー情報が空欄だと出品できない' do
         @item.category_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
-      it "商品の状態の情報が空欄だと出品できない" do
+      it '商品の状態の情報が空欄だと出品できない' do
         @item.condition_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
-      it "配送料の負担の情報が空欄だと出品できない" do
+      it '配送料の負担の情報が空欄だと出品できない' do
         @item.charge_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Charge can't be blank")
       end
-      it "発送元の地域の情報が空欄だと出品できない" do
+      it '発送元の地域の情報が空欄だと出品できない' do
         @item.area_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Area can't be blank")
       end
-      it "発送までの日数の情報が空欄だと出品できない" do
+      it '発送までの日数の情報が空欄だと出品できない' do
         @item.days_of_ship_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Days of ship can't be blank")
       end
-      it "価格の情報が空欄だと出品できない" do
+      it '価格の情報が空欄だと出品できない' do
         @item.price = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
-      it "価格が300円未満だと出品できない" do
+      it '価格が300円未満だと出品できない' do
         @item.price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
-      it "価格が10,000,000円以上だと出品できない" do
+      it '価格が10,000,000円以上だと出品できない' do
         @item.price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')

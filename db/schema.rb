@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 2022_06_06_015010) do
     t.bigint "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["item_id"], name: "index_purchase_records_on_item_id"
-    t.index ["user_id"], name: "index_purchase_records_on_user_id"
+    t.index ["item_id"], name: "index_orders_on_item_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "shipping_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

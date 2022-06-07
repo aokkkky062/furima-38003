@@ -38,6 +38,9 @@ RSpec.describe OrderForm, type: :model do
         @order_form.phone_number = 12_345_678_910
         expect(@order_form).to be_valid
       end
+      it "tokenがあれば保存ができること" do
+        expect(@order_form).to be_valid
+      end
     end
 
     context '配送先の情報が登録できないとき' do
@@ -100,6 +103,11 @@ RSpec.describe OrderForm, type: :model do
         @order_form.phone_number = "070 - 12345 - 6789"
         @order_form.valid?
         expect(@order_form.errors.full_messages).to include('Phone number is invalid')
+      end
+      it 'トークンが空だと保存できないこと' do
+        @order_form.token = nil
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include("Token can't be blank")
       end
     end
   end

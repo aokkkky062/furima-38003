@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_params
 
   def index
     @order_form = OrderForm.new
-    @item = Item.find(params[:item_id])
+    
     if @item.order.present? || current_user.id == @item.user_id
       redirect_to root_path
     end
@@ -11,7 +12,6 @@ class OrdersController < ApplicationController
 
   def create
     @order_form = OrderForm.new(order_params)
-    @item = Item.find(params[:item_id])
     if @order_form.valid?
       pay_item
       @order_form.save
@@ -35,4 +35,9 @@ class OrdersController < ApplicationController
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
   end
+
+  def set_params
+    @item = Item.find(params[:item_id])
+  end
+
 end
